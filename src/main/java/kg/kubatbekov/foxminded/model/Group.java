@@ -1,5 +1,8 @@
 package kg.kubatbekov.foxminded.model;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Group {
     private int group_id;
     private String group_name;

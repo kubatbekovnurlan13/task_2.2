@@ -1,5 +1,8 @@
 package kg.kubatbekov.foxminded.model;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Course {
     private int course_id;
     private String course_name;

@@ -11,7 +11,6 @@ import java.util.List;
 
 @Repository
 public class CourseDAOImplementation implements CourseDAO {
-
     private final JdbcTemplate jdbcTemplate;
 
     @Autowired
