@@ -9,7 +9,7 @@ public interface GroupDAO {
 
     boolean update(Group group);
 
-    Group getById(int group_id);
+    Group getByName(String name);
 
     List<Group> getAll();
 

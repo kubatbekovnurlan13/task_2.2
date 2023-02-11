@@ -9,7 +9,7 @@ public interface StudentDAO {
 
     boolean update(Student student);
 
-    Student getById(int student_id);
+    Student getByName(String name);
 
     List<Student> getAll();
 

@@ -34,10 +34,10 @@ public class GroupDAOImplementation implements GroupDAO {
     }
 
     @Override
-    public Group getById(int group_id) {
+    public Group getByName(String name) {
         Group group = new Group();
-        String SQL_GET = "select * from groups where group_id=?;";
-        return jdbcTemplate.query(SQL_GET, new Object[]{group_id}, new BeanPropertyRowMapper<>(Group.class))
+        String SQL_GET = "select * from groups where group_name=?;";
+        return jdbcTemplate.query(SQL_GET, new Object[]{name}, new BeanPropertyRowMapper<>(Group.class))
                 .stream().findAny().orElse(group);
     }
 

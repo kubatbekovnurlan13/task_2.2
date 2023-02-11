@@ -25,11 +25,11 @@ public class CourseDAOImplementation implements CourseDAO {
     }
 
     @Override
-    public Course getById(int course_id) {
+    public Course getByName(String name) {
         Course course = new Course();
-        String SQL_GET = "select * from courses where course_id=?;";
+        String SQL_GET = "select * from courses where course_name=?;";
 
-        return jdbcTemplate.query(SQL_GET, new Object[]{course_id}, new BeanPropertyRowMapper<>(Course.class))
+        return jdbcTemplate.query(SQL_GET, new Object[]{name}, new BeanPropertyRowMapper<>(Course.class))
                 .stream().findAny().orElse(course);
     }
 

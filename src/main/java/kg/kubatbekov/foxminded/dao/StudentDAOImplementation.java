@@ -2,8 +2,8 @@ package kg.kubatbekov.foxminded.dao;
 
 import kg.kubatbekov.foxminded.daoInterfaces.StudentDAO;
 import kg.kubatbekov.foxminded.model.Student;
+import kg.kubatbekov.foxminded.rowMapper.StudentRowMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -22,7 +22,7 @@ public class StudentDAOImplementation implements StudentDAO {
     @Override
     public void save(Student student) {
         String SQL_SAVE = "insert into students (first_name, last_name, group_id) VALUES (?,?,?);";
-        jdbcTemplate.update(SQL_SAVE, student.getLast_name(), student.getLast_name(), student.getGroup_id());
+        jdbcTemplate.update(SQL_SAVE, student.getFirst_name(), student.getLast_name(), student.getGroup_id());
     }
 
     @Override
@@ -36,17 +36,17 @@ public class StudentDAOImplementation implements StudentDAO {
     }
 
     @Override
-    public Student getById(int student_id) {
+    public Student getByName(String name) {
         Student student = new Student();
-        String SQL_GET = "select * from students where student_id=?;";
-        return jdbcTemplate.query(SQL_GET, new Object[]{student_id}, new BeanPropertyRowMapper<>(Student.class))
+        String SQL_GET = "select * from students where first_name=?;";
+        return jdbcTemplate.query(SQL_GET, new Object[]{name}, new StudentRowMapper())
                 .stream().findAny().orElse(student);
     }
 
     @Override
     public List<Student> getAll() {
         String SQL_GETALL = "select * from students;";
-        return jdbcTemplate.query(SQL_GETALL, new BeanPropertyRowMapper<>(Student.class));
+        return jdbcTemplate.query(SQL_GETALL, new StudentRowMapper());
     }
 
     @Override

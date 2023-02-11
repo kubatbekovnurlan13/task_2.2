@@ -9,7 +9,7 @@ public interface CourseDAO {
 
     boolean update(Course course);
 
-    Course getById(int course_id);
+    Course getByName(String name);
 
     List<Course> getAll();
 
