@@ -28,6 +28,10 @@ public class Maker {
         this.groupDAOImplementation = groupDAOImplementation;
         this.courseDAOImplementation = courseDAOImplementation;
         this.studentDAOImplementation = studentDAOImplementation;
+        makeOperations();
+    }
+
+    public void makeOperations(){
         doCRUDToGroup();
         doCRUDToCourse();
         doCRUDToStudent();
@@ -107,6 +111,5 @@ public class Maker {
         boolean deleted = studentDAOImplementation.deleteById(receivedStudent.getStudent_id());
         System.out.println("Deleted student by id=" + receivedStudent.getStudent_id() + " check: " + deleted);
     }
-
-
+    
 }

@@ -1,6 +1,5 @@
 package kg.kubatbekov.foxminded.model;
 
-import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -8,7 +7,6 @@ public class Student {
     private int student_id;
     private String first_name;
     private String last_name;
-    @Nullable
     private int group_id;
 
     public Student() {
@@ -29,10 +27,6 @@ public class Student {
 
     public int getStudent_id() {
         return student_id;
-    }
-
-    public void setStudent_id(int student_id) {
-        this.student_id = student_id;
     }
 
     public int getGroup_id() {
@@ -61,11 +55,10 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student{" +
+        return "Student: " +
                 "student_id=" + student_id +
                 ", first_name='" + first_name + '\'' +
                 ", last_name='" + last_name + '\'' +
-                ", group_id=" + group_id +
-                '}';
+                ", group_id=" + group_id;
     }
 }

@@ -19,8 +19,8 @@ public class Group {
         return group_id;
     }
 
-    public void setGroup_id(int group_id) {
-        this.group_id = group_id;
+    public Group(String group_name) {
+        this.group_name = group_name;
     }
 
     public String getGroup_name() {
@@ -33,9 +33,8 @@ public class Group {
 
     @Override
     public String toString() {
-        return "Group{" +
+        return "Group: " +
                 "group_id=" + group_id +
-                ", group_name='" + group_name + '\'' +
-                '}';
+                ", group_name='" + group_name;
     }
 }

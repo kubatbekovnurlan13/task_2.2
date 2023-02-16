@@ -1,6 +1,6 @@
 package kg.kubatbekov.foxminded.dao;
 
-import kg.kubatbekov.foxminded.daoInterfaces.GroupDAO;
+import kg.kubatbekov.foxminded.daoInterfaces.CRUDDAO;
 import kg.kubatbekov.foxminded.model.Group;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public class GroupDAOImplementation implements GroupDAO {
+public class GroupDAOImplementation implements CRUDDAO<Group> {
 
     private final JdbcTemplate jdbcTemplate;
 

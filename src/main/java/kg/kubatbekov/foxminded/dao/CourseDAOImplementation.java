@@ -1,6 +1,6 @@
 package kg.kubatbekov.foxminded.dao;
 
-import kg.kubatbekov.foxminded.daoInterfaces.CourseDAO;
+import kg.kubatbekov.foxminded.daoInterfaces.CRUDDAO;
 import kg.kubatbekov.foxminded.model.Course;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public class CourseDAOImplementation implements CourseDAO {
+public class CourseDAOImplementation implements CRUDDAO<Course> {
     private final JdbcTemplate jdbcTemplate;
 
     @Autowired

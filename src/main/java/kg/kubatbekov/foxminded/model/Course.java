@@ -26,10 +26,6 @@ public class Course {
         return course_id;
     }
 
-    public void setCourse_id(int course_id) {
-        this.course_id = course_id;
-    }
-
     public String getCourse_name() {
         return course_name;
     }
@@ -48,10 +44,9 @@ public class Course {
 
     @Override
     public String toString() {
-        return "Course{" +
+        return "Course: " +
                 "course_id=" + course_id +
                 ", course_name='" + course_name + '\'' +
-                ", course_description='" + course_description + '\'' +
-                '}';
+                ", course_description='" + course_description;
     }
 }
