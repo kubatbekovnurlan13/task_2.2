@@ -111,5 +111,5 @@ public class Maker {
         boolean deleted = studentDAOImplementation.deleteById(receivedStudent.getStudent_id());
         System.out.println("Deleted student by id=" + receivedStudent.getStudent_id() + " check: " + deleted);
     }
-    
+
 }
