@@ -1,7 +1,7 @@
 services:
-  postgres:
-    container_name: spring_postgres_container
+  db:
     image: postgres
+    container_name: spring_postgres_container
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
