@@ -92,7 +92,7 @@ public class ValueInput implements CommandLineRunner {
 
     private int getCommand() {
         String info = """
-                                
+
                 What would you like to do?
                 0 - exit
                 1 - save
@@ -113,7 +113,7 @@ public class ValueInput implements CommandLineRunner {
 
     private int getModelName() {
         String info = """
-                                
+
                 To whom do you want to perform this operation?
                 0 - exit
                 1 - Student
@@ -138,7 +138,7 @@ public class ValueInput implements CommandLineRunner {
         in.nextLine();
 
         String info = """
-                                
+
                 Enter 'stop' to exit.
                 Enter value:""";
         System.out.print(info);

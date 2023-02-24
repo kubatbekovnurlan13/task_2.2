@@ -66,7 +66,7 @@ class CourseDAOImplementationTest extends PostgresContainer {
 
     @Test
     void deleteById_testDeleteCourseById_whenThereIsCourse() {
-        boolean actual = courseDAOImplementation.deleteById(10);
+        boolean actual = courseDAOImplementation.deleteById(3);
         boolean expected = true;
 
         Assertions.assertEquals(expected, actual);
