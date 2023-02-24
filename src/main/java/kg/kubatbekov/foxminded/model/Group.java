@@ -2,6 +2,8 @@ package kg.kubatbekov.foxminded.model;
 
 import org.springframework.stereotype.Component;
 
+import java.util.Objects;
+
 @Component
 public class Group {
     private int group_id;
@@ -36,5 +38,18 @@ public class Group {
         return "Group: " +
                 "group_id=" + group_id +
                 ", group_name='" + group_name;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Group group = (Group) o;
+        return group_id == group.group_id && Objects.equals(group_name, group.group_name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(group_id, group_name);
     }
 }

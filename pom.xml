@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>kg.kubatbekov</groupId>
-	<artifactId>foxminded</artifactId>
+	<artifactId>2</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>school_jdbc_application</name>
 	<description>School Jdbc appliaction with Spring Boot</description>

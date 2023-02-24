@@ -2,6 +2,8 @@ package kg.kubatbekov.foxminded.model;
 
 import org.springframework.stereotype.Component;
 
+import java.util.Objects;
+
 @Component
 public class Course {
     private int course_id;
@@ -48,5 +50,18 @@ public class Course {
                 "course_id=" + course_id +
                 ", course_name='" + course_name + '\'' +
                 ", course_description='" + course_description;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Course course = (Course) o;
+        return course_id == course.course_id && Objects.equals(course_name, course.course_name) && Objects.equals(course_description, course.course_description);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(course_id, course_name, course_description);
     }
 }
