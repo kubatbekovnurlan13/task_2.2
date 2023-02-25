@@ -10,13 +10,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @SpringBootTest
 public class GroupDAOImplementationTest extends PostgresContainer {
     @MockBean
-    ValueInput valueInput;
+    private ValueInput valueInput;
     @Autowired
     private GroupDAOImplementation groupDAOImplementation;
 
@@ -61,8 +60,7 @@ public class GroupDAOImplementationTest extends PostgresContainer {
         Group group = new Group(0, "group_1");
 
         Group actual = groupDAOImplementation.getByName(group.getGroup_name());
-        Group expected = group;
-        Assertions.assertEquals(expected, actual);
+        Assertions.assertEquals(group, actual);
     }
 
     @Test

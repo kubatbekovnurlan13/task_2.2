@@ -1,6 +1,5 @@
 package kg.kubatbekov.foxminded.daoTest;
 
-
 import kg.kubatbekov.foxminded.container.PostgresContainer;
 import kg.kubatbekov.foxminded.dao.StudentDAOImplementation;
 import kg.kubatbekov.foxminded.model.Student;
@@ -16,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 @SpringBootTest
 public class StudentDAOImplementationTest extends PostgresContainer {
     @MockBean
-    ValueInput valueInput;
+    private ValueInput valueInput;
     @Autowired
     private StudentDAOImplementation studentDAOImplementation;
 
@@ -29,7 +28,7 @@ public class StudentDAOImplementationTest extends PostgresContainer {
 
     @Test
     void update_testUpdateOfValue_whenValueInput() {
-        Student student  = new Student(1,"first_name_new","last_name_new",5);
+        Student student = new Student(1, "first_name_new", "last_name_new", 5);
 
         boolean actual = studentDAOImplementation.update(student);
         boolean expected = true;
@@ -52,11 +51,10 @@ public class StudentDAOImplementationTest extends PostgresContainer {
 
     @Test
     void getByName_testGetByName_whenIdInput() {
-        Student student  = new Student(2,"first_2","last_2",1);
+        Student student = new Student(2, "first_2", "last_2", 1);
 
         Student actual = studentDAOImplementation.getByName(student.getFirst_name());
-        Student expected = student;
-        assertEquals(expected, actual);
+        assertEquals(student, actual);
     }
 
     @Test

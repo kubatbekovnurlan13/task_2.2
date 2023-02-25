@@ -1,5 +1,6 @@
 package kg.kubatbekov.foxminded.container;
 
+import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
 import org.testcontainers.containers.PostgreSQLContainer;
@@ -7,13 +8,15 @@ import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
 @Testcontainers
+@DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_CLASS)
 public abstract class PostgresContainer {
     @Container
     public static PostgreSQLContainer<?> container =
             new PostgreSQLContainer<>("postgres:latest")
                     .withDatabaseName("school_db")
                     .withPassword("password")
-                    .withUsername("postgres");
+                    .withUsername("postgres")
+                    .withReuse(true);
 
     @DynamicPropertySource
     public static void properties(DynamicPropertyRegistry registry) {

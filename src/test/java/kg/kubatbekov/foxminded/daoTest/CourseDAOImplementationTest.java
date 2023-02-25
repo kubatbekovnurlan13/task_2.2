@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 @SpringBootTest
 class CourseDAOImplementationTest extends PostgresContainer {
     @MockBean
-    ValueInput valueInput;
+    private ValueInput valueInput;
     @Autowired
     private CourseDAOImplementation courseDAOImplementation;
 
@@ -26,10 +26,9 @@ class CourseDAOImplementationTest extends PostgresContainer {
         Assertions.assertEquals("Cannot invoke \"kg.kubatbekov.foxminded.model.Course.getCourse_name()\" because \"course\" is null", exception.getMessage());
     }
 
-
     @Test
     void update_testUpdateOfValue_whenValueInput() {
-        Course course = new Course(1,"course_1_new", "course_description_1_new");
+        Course course = new Course(1, "course_1_new", "course_description_1_new");
         boolean actual = courseDAOImplementation.update(course);
         boolean expected = true;
         Assertions.assertEquals(expected, actual);
@@ -51,11 +50,10 @@ class CourseDAOImplementationTest extends PostgresContainer {
 
     @Test
     void getByName_testGetCourseByName_whenCourseNameInput() {
-        Course course = new Course(0,"course_7", "course_description_7");
+        Course course = new Course(0, "course_7", "course_description_7");
 
         Course actual = courseDAOImplementation.getByName(course.getCourse_name());
-        Course expected = course;
-        Assertions.assertEquals(expected, actual);
+        Assertions.assertEquals(course, actual);
     }
 
     @Test
@@ -66,7 +64,7 @@ class CourseDAOImplementationTest extends PostgresContainer {
 
     @Test
     void deleteById_testDeleteCourseById_whenThereIsCourse() {
-        boolean actual = courseDAOImplementation.deleteById(3);
+        boolean actual = courseDAOImplementation.deleteById(10);
         boolean expected = true;
 
         Assertions.assertEquals(expected, actual);
@@ -79,5 +77,4 @@ class CourseDAOImplementationTest extends PostgresContainer {
 
         Assertions.assertEquals(expected, actual);
     }
-
 }
